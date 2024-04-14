@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>Calculate What To TIP</h1>
+        <form>
+            Value of order: <input type="number" class="input" id="order"><br>
+            <button class="button" id="tip10">10%</button>
+            <button class="button" id="tip15">15%</button>
+            <button class="button" id="tip20">20%</button>
+            <div class="results"></div>
+        </form>
+    </div>
+</body>
+<script>
+    const form = document.querySelector('form');
+    form.addEventListener("submit", function(e){
+        e.preventDefault();
+        const order = parseInt(document.getElementById("order").value);
+        const results = document.querySelector('.results');
+        if(order === '' || order < 0 || isNaN(order)){
+            results.textContent = "Please enter a valid order amount.";
+        } else {
+            const tipPercentage = parseInt(e.target.id.replace('tip', ''));
+            const tipAmount = (order * tipPercentage) / 100;
+            const totalAmount = order + tipAmount;
+            results.textContent = `Tip Amount: $${tipAmount.toFixed(2)}, Total Amount: $${totalAmount.toFixed(2)}`;
+        }
+    });
+</script>
+</html>

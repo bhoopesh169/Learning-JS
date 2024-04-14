@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #cyan{
+            background-color: cyan;
+        }
+        #lavender{
+            background-color: lavender;
+        }
+        #green{
+            background-color: green;
+        }
+        #black{
+            background-color: black;
+        }
+        .button{
+            padding: 80px 70px;
+            border-radius: 4px;
+            border-width: 4px;
+            display: inline-block;
+        }
+        .canvas{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="canvas">
+        <h1 class="heading">This is a practice project</h1>
+        <span class="button" id="cyan"></span>
+        <span class="button" id="lavender"></span>
+        <span class="button" id="green"></span>
+        <span class="button" id="black"></span>
+        <h2 class="heading">Click on the following to change the color of the background</h2>
+    </div>
+</body>
+<script>
+    const buttons = document.querySelectorAll('.button');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', function(e){
+            document.body.style.backgroundColor = e.target.id;
+        });
+    });
+</script>
+</html>
